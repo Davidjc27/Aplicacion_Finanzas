@@ -6,3 +6,5 @@ Este proyecto usara las siguientes tecnologias:
 -JavaScript
 -Html
 -Css
+
+Creado por David Jaramillo
