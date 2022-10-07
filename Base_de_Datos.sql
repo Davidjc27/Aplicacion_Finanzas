@@ -1,12 +1,12 @@
-create table usuarios(id int primary key,contraseña varchar(50) unique not null,correoUsuario varchar(50) unique not null,nombre varchar(50))
+create table usuarios(id int primary key,contrasena varchar(50) not null,correo varchar(50) unique not null,nombre varchar(50),username varchar(30))
 
-Create table movimientos (idUsuario int,id_mov int primary key,tipo int not null,categoria int not null,cantidad int not null,
+Create table movimientos (id_usuario int not null ,id int primary key,id_tipo int not null,id_categoria int not null,cantidad int not null,
 							descripcion varchar(50),fecha date not null,
-							foreign key (tipo) references tipoMovimiento(id),
-							foreign key (categoria) references categoria(id),
-							foreign key (idUsuario) references usuarios(id))
+							foreign key (id_tipo) references tipo_movimiento(id),
+							foreign key (id_categoria) references categorias(id),
+							foreign key (id_Usuario) references usuarios(id))
 
-Create table categoria(id int primary key,descripcion varchar(30) not null,tipo int
-						foreign key (tipo) references tipoMovimiento(id))
+Create table categorias(id int primary key,descripcion varchar(30) not null,id_tipo int,
+						foreign key (tipo) references tipo_movimiento(id))
 
-create table tipoMovimiento(id int primary key,tipo varchar (15) not null)
+create table tipos_movimiento(id int primary key,tipo varchar (15) not null)
